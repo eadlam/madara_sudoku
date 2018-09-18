@@ -32,6 +32,28 @@ Clone this repository to your system.
 
 ## Run the Solver:
 
-    python3 launch.py ./in/easy.txt
-    python3 launch.py ./in/medium.txt 
-    
+    $ python3 launch.py in/medium.txt
+
+    Starting Configuration
+
+    0 0 2 4 1 0 0 0 0
+    0 8 5 7 6 0 0 0 9
+    3 7 0 9 0 0 0 0 0
+    4 0 0 0 5 0 0 3 0
+    0 1 0 0 9 6 0 0 5
+    0 0 0 2 8 4 1 0 0
+    0 0 7 5 0 0 0 0 3
+    0 0 0 6 0 0 0 0 0
+    0 0 9 0 0 1 2 0 7
+
+    Launching 81 agents
+
+    9 6 2 4 1 5 3 7 8
+    1 8 5 7 6 3 4 2 9
+    3 7 4 9 2 8 5 6 1
+    4 9 6 1 5 7 8 3 2
+    2 1 8 3 9 6 7 4 5
+    7 5 3 2 8 4 1 9 6
+    8 2 7 5 4 9 6 1 3
+    5 3 1 6 7 2 9 8 4
+    6 4 9 8 3 1 2 5 7 
