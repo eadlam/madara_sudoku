@@ -1,0 +1,77 @@
+#----------------------------------------------------------------------------
+#       Macros
+#----------------------------------------------------------------------------
+CC            = gcc
+CXX           = g++
+LD            = $(CXX) $(CCFLAGS) $(CPPFLAGS)
+AR            = ar
+PICFLAGS      = -fPIC
+CCFLAGS       = -std=c++11
+CPPFLAGS      = $(PICFLAGS) $(GENFLAGS) -Wextra -pedantic -D_REENTRANT
+OBJEXT        = .o
+OUTPUT_OPTION = -o "$@"
+COMPILE.c     = $(CC) $(CFLAGS) $(CPPFLAGS) -c
+COMPILE.cc    = $(CXX) $(CCFLAGS) $(CPPFLAGS) -c
+LDFLAGS       = -L"."
+CCC           = $(CXX)
+MAKEFILE      = Makefile.documentation_madara_sudoku
+DEPENDENCIES  = .depend.$(MAKEFILE)
+LTARGETDIR    = ./
+CAT           = cat
+MV            = mv -f
+RM            = rm -rf
+CP            = cp -p
+NUL           = /dev/null
+MKDIR         = mkdir -p
+TESTDIRSTART  = test -d
+TESTDIREND    = ||
+TOUCH         = touch
+EXEEXT        = 
+LIBPREFIX     = lib
+LIBSUFFIX     = 
+GENFLAGS      = -O
+LDLIBS        = -ldl $(subst lib,-l,$(sort $(basename $(notdir $(wildcard /usr/lib/librt.so /lib/librt.so))))) -lpthread
+OBJS          =
+SRC           = 
+LINK.cc       = $(LD) $(LDFLAGS)
+EXPORTFLAGS   = $(STATICFLAGS)
+
+#----------------------------------------------------------------------------
+#       Local targets
+#----------------------------------------------------------------------------
+
+SPACE           = $(should_be_unset) $(should_be_unset)
+GENERATED_DIRTY = rislab
+
+all: __prebuild__ $(GENERATED_DIRTY)
+
+rislab: Doxyfile.dxy
+	doxygen  Doxyfile.dxy
+
+.PRECIOUS: $(GENERATED_DIRTY)
+
+generated: __prebuild__ $(GENERATED_DIRTY)
+	@-:
+
+clean:
+	-$(RM) $(OBJS)
+
+realclean: clean
+	-$(RM) $(SHLIB) $(LIB)
+	-$(RM) $(GENERATED_DIRTY)
+
+check-syntax:
+	$(COMPILE.cc) $(EXPORTFLAGS) -Wall -Wextra -pedantic -fsyntax-only $(CHK_SOURCES)
+
+__prebuild__:
+	@perl ./get_version.pl
+
+#----------------------------------------------------------------------------
+#       Dependencies
+#----------------------------------------------------------------------------
+
+
+depend:
+	@-:
+
+-include $(DEPENDENCIES)

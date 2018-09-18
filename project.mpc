@@ -1,0 +1,22 @@
+
+project (madara_sudoku) : using_madara {
+  exeout = bin
+  exename = sudoku_agent
+
+  macros +=  _USE_MATH_DEFINES
+
+  Documentation_Files {
+    src/
+    README.txt
+  }
+
+  Header_Files {
+    src/
+    src/filters
+  }
+
+  Source_Files {
+    src
+    src/filters
+  }
+}

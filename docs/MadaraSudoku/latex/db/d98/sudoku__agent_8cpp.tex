@@ -1,0 +1,235 @@
+\hypertarget{sudoku__agent_8cpp}{}\section{src/sudoku\+\_\+agent.cpp File Reference}
+\label{sudoku__agent_8cpp}\index{src/sudoku\+\_\+agent.\+cpp@{src/sudoku\+\_\+agent.\+cpp}}
+{\ttfamily \#include $<$algorithm$>$}\newline
+{\ttfamily \#include $<$future$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$sstream$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$unistd.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}madara/knowledge/\+Knowledge\+Base.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}madara/knowledge/containers/\+Flex\+Map.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}madara/knowledge/containers/\+Integer.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}madara/utility/\+Utility.\+h\char`\"{}}\newline
+Include dependency graph for sudoku\+\_\+agent.\+cpp\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d9/df9/sudoku__agent_8cpp__incl}
+\end{center}
+\end{figure}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef engine\+::\+Eval\+Settings \hyperlink{sudoku__agent_8cpp_aa3852b935f4e83fae32164c1922670a3}{Eval\+Settings}
+\item 
+typedef madara\+::transport\+::\+Qo\+S\+Transport\+Settings \hyperlink{sudoku__agent_8cpp_a94ded35bdf9aa42c18b166fbf2aa816d}{Qo\+S\+Transport\+Settings}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{sudoku__agent_8cpp_a677f8ea0d1cd1a7aa388de5b18763a56}{add\+\_\+agent} (int id, \hyperlink{sudoku__agent_8cpp_a94ded35bdf9aa42c18b166fbf2aa816d}{Qo\+S\+Transport\+Settings} \&settings)
+\begin{DoxyCompactList}\small\item\em Construct \mbox{[}protocol\mbox{]}\+://\mbox{[}ip\mbox{]}\+:\mbox{[}port\mbox{]} and push to settings.\+hosts. \end{DoxyCompactList}\item 
+void \hyperlink{sudoku__agent_8cpp_a4a6f7757cbc7055fdd90cb67c5e64f01}{add\+\_\+peers} (int id, \hyperlink{sudoku__agent_8cpp_a94ded35bdf9aa42c18b166fbf2aa816d}{Qo\+S\+Transport\+Settings} \&settings)
+\begin{DoxyCompactList}\small\item\em Add peers to settings.\+hosts (skipping this agent) \end{DoxyCompactList}\item 
+int \hyperlink{sudoku__agent_8cpp_ab1fa5b2074bb27f45e5fc02e5bcba6bc}{find\+\_\+value} (containers\+::\+Integer id, containers\+::\+Flex\+Map \&agents)
+\begin{DoxyCompactList}\small\item\em Check peers in same row/col/quad to find value by process of elimination. \end{DoxyCompactList}\item 
+std\+::string \hyperlink{sudoku__agent_8cpp_a982f4a462e23a5b6d37f88f16de65200}{host} (\char`\"{}\char`\"{})
+\item 
+std\+::string \hyperlink{sudoku__agent_8cpp_af9fd3267763c52bb7d35d20600d68b81}{host\+\_\+prefix} (\char`\"{}tcp\+://127.\+0.\+0.\+1\+:\char`\"{})
+\item 
+bool \hyperlink{sudoku__agent_8cpp_aeaaeb32f3bcdfcd91a58c6151d87a769}{is\+\_\+complete} (containers\+::\+Flex\+Map \&agents)
+\begin{DoxyCompactList}\small\item\em Check that all agents have a non-\/zero value. \end{DoxyCompactList}\item 
+int \hyperlink{sudoku__agent_8cpp_a0ddf1224851353fc92bfbff6f499fa97}{main} (int argc, char $\ast$argv\mbox{[}$\,$\mbox{]})
+\begin{DoxyCompactList}\small\item\em Entry point to sudoku agent. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{sudoku__agent_8cpp_a986befd442815886b539653b02cca566}{num\+\_\+agents} = 81
+\item 
+int \hyperlink{sudoku__agent_8cpp_a43f552b00d972f4ef1538bf089007ba9}{starting\+\_\+port} = 30000
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\begin{DoxyAuthor}{Author}
+Eric Adlam \href{mailto:eadlam@gmail.com}{\tt eadlam@gmail.\+com}
+\end{DoxyAuthor}
+This is the entry point and contains all functions and definitions for Madara Sudoku 
+
+\subsection{Typedef Documentation}
+\mbox{\Hypertarget{sudoku__agent_8cpp_aa3852b935f4e83fae32164c1922670a3}\label{sudoku__agent_8cpp_aa3852b935f4e83fae32164c1922670a3}} 
+\index{sudoku\+\_\+agent.\+cpp@{sudoku\+\_\+agent.\+cpp}!Eval\+Settings@{Eval\+Settings}}
+\index{Eval\+Settings@{Eval\+Settings}!sudoku\+\_\+agent.\+cpp@{sudoku\+\_\+agent.\+cpp}}
+\subsubsection{\texorpdfstring{Eval\+Settings}{EvalSettings}}
+{\footnotesize\ttfamily typedef engine\+::\+Eval\+Settings \hyperlink{sudoku__agent_8cpp_aa3852b935f4e83fae32164c1922670a3}{Eval\+Settings}}
+
+
+
+Definition at line 24 of file sudoku\+\_\+agent.\+cpp.
+
+\mbox{\Hypertarget{sudoku__agent_8cpp_a94ded35bdf9aa42c18b166fbf2aa816d}\label{sudoku__agent_8cpp_a94ded35bdf9aa42c18b166fbf2aa816d}} 
+\index{sudoku\+\_\+agent.\+cpp@{sudoku\+\_\+agent.\+cpp}!Qo\+S\+Transport\+Settings@{Qo\+S\+Transport\+Settings}}
+\index{Qo\+S\+Transport\+Settings@{Qo\+S\+Transport\+Settings}!sudoku\+\_\+agent.\+cpp@{sudoku\+\_\+agent.\+cpp}}
+\subsubsection{\texorpdfstring{Qo\+S\+Transport\+Settings}{QoSTransportSettings}}
+{\footnotesize\ttfamily typedef madara\+::transport\+::\+Qo\+S\+Transport\+Settings \hyperlink{sudoku__agent_8cpp_a94ded35bdf9aa42c18b166fbf2aa816d}{Qo\+S\+Transport\+Settings}}
+
+
+
+Definition at line 25 of file sudoku\+\_\+agent.\+cpp.
+
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{sudoku__agent_8cpp_a677f8ea0d1cd1a7aa388de5b18763a56}\label{sudoku__agent_8cpp_a677f8ea0d1cd1a7aa388de5b18763a56}} 
+\index{sudoku\+\_\+agent.\+cpp@{sudoku\+\_\+agent.\+cpp}!add\+\_\+agent@{add\+\_\+agent}}
+\index{add\+\_\+agent@{add\+\_\+agent}!sudoku\+\_\+agent.\+cpp@{sudoku\+\_\+agent.\+cpp}}
+\subsubsection{\texorpdfstring{add\+\_\+agent()}{add\_agent()}}
+{\footnotesize\ttfamily void add\+\_\+agent (\begin{DoxyParamCaption}\item[{int}]{id,  }\item[{\hyperlink{sudoku__agent_8cpp_a94ded35bdf9aa42c18b166fbf2aa816d}{Qo\+S\+Transport\+Settings} \&}]{settings }\end{DoxyParamCaption})}
+
+
+
+Construct \mbox{[}protocol\mbox{]}\+://\mbox{[}ip\mbox{]}\+:\mbox{[}port\mbox{]} and push to settings.\+hosts. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em id} & Add id to starting port to get port number \\
+\hline
+\mbox{\tt out}  & {\em settings} & The address is pushed to settings.\+hosts \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 49 of file sudoku\+\_\+agent.\+cpp.
+
+\mbox{\Hypertarget{sudoku__agent_8cpp_a4a6f7757cbc7055fdd90cb67c5e64f01}\label{sudoku__agent_8cpp_a4a6f7757cbc7055fdd90cb67c5e64f01}} 
+\index{sudoku\+\_\+agent.\+cpp@{sudoku\+\_\+agent.\+cpp}!add\+\_\+peers@{add\+\_\+peers}}
+\index{add\+\_\+peers@{add\+\_\+peers}!sudoku\+\_\+agent.\+cpp@{sudoku\+\_\+agent.\+cpp}}
+\subsubsection{\texorpdfstring{add\+\_\+peers()}{add\_peers()}}
+{\footnotesize\ttfamily void add\+\_\+peers (\begin{DoxyParamCaption}\item[{int}]{id,  }\item[{\hyperlink{sudoku__agent_8cpp_a94ded35bdf9aa42c18b166fbf2aa816d}{Qo\+S\+Transport\+Settings} \&}]{settings }\end{DoxyParamCaption})}
+
+
+
+Add peers to settings.\+hosts (skipping this agent) 
+
+The transport layer expects the current agent to be the first item in settings.\+hosts, and for peers to follow. This adds all peers, skipping the current agent
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em id} & The id of the current agent to skip \\
+\hline
+\mbox{\tt out}  & {\em settings} & The peers are pushed to settings.\+hosts \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 65 of file sudoku\+\_\+agent.\+cpp.
+
+\mbox{\Hypertarget{sudoku__agent_8cpp_ab1fa5b2074bb27f45e5fc02e5bcba6bc}\label{sudoku__agent_8cpp_ab1fa5b2074bb27f45e5fc02e5bcba6bc}} 
+\index{sudoku\+\_\+agent.\+cpp@{sudoku\+\_\+agent.\+cpp}!find\+\_\+value@{find\+\_\+value}}
+\index{find\+\_\+value@{find\+\_\+value}!sudoku\+\_\+agent.\+cpp@{sudoku\+\_\+agent.\+cpp}}
+\subsubsection{\texorpdfstring{find\+\_\+value()}{find\_value()}}
+{\footnotesize\ttfamily int find\+\_\+value (\begin{DoxyParamCaption}\item[{containers\+::\+Integer}]{id,  }\item[{containers\+::\+Flex\+Map \&}]{agents }\end{DoxyParamCaption})}
+
+
+
+Check peers in same row/col/quad to find value by process of elimination. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em id} & The id of the current agent \\
+\hline
+\mbox{\tt in,out}  & {\em agents} & The object to search and update \\
+\hline
+\end{DoxyParams}
+Search over all agents, ignoring those that are not in same row/col/quad
+
+Check if all but one were eliminated
+
+values are 1-\/9, so add 1 to the index 
+
+Definition at line 81 of file sudoku\+\_\+agent.\+cpp.
+
+\mbox{\Hypertarget{sudoku__agent_8cpp_a982f4a462e23a5b6d37f88f16de65200}\label{sudoku__agent_8cpp_a982f4a462e23a5b6d37f88f16de65200}} 
+\index{sudoku\+\_\+agent.\+cpp@{sudoku\+\_\+agent.\+cpp}!host@{host}}
+\index{host@{host}!sudoku\+\_\+agent.\+cpp@{sudoku\+\_\+agent.\+cpp}}
+\subsubsection{\texorpdfstring{host()}{host()}}
+{\footnotesize\ttfamily std\+::string host (\begin{DoxyParamCaption}\item[{\char`\"{}\char`\"{}}]{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{sudoku__agent_8cpp_af9fd3267763c52bb7d35d20600d68b81}\label{sudoku__agent_8cpp_af9fd3267763c52bb7d35d20600d68b81}} 
+\index{sudoku\+\_\+agent.\+cpp@{sudoku\+\_\+agent.\+cpp}!host\+\_\+prefix@{host\+\_\+prefix}}
+\index{host\+\_\+prefix@{host\+\_\+prefix}!sudoku\+\_\+agent.\+cpp@{sudoku\+\_\+agent.\+cpp}}
+\subsubsection{\texorpdfstring{host\+\_\+prefix()}{host\_prefix()}}
+{\footnotesize\ttfamily std\+::string host\+\_\+prefix (\begin{DoxyParamCaption}\item[{\char`\"{}tcp\+://127.\+0.\+0.\+1\+:\char`\"{}}]{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{sudoku__agent_8cpp_aeaaeb32f3bcdfcd91a58c6151d87a769}\label{sudoku__agent_8cpp_aeaaeb32f3bcdfcd91a58c6151d87a769}} 
+\index{sudoku\+\_\+agent.\+cpp@{sudoku\+\_\+agent.\+cpp}!is\+\_\+complete@{is\+\_\+complete}}
+\index{is\+\_\+complete@{is\+\_\+complete}!sudoku\+\_\+agent.\+cpp@{sudoku\+\_\+agent.\+cpp}}
+\subsubsection{\texorpdfstring{is\+\_\+complete()}{is\_complete()}}
+{\footnotesize\ttfamily bool is\+\_\+complete (\begin{DoxyParamCaption}\item[{containers\+::\+Flex\+Map \&}]{agents }\end{DoxyParamCaption})}
+
+
+
+Check that all agents have a non-\/zero value. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in,out}  & {\em agents} & The object to search and update \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 117 of file sudoku\+\_\+agent.\+cpp.
+
+\mbox{\Hypertarget{sudoku__agent_8cpp_a0ddf1224851353fc92bfbff6f499fa97}\label{sudoku__agent_8cpp_a0ddf1224851353fc92bfbff6f499fa97}} 
+\index{sudoku\+\_\+agent.\+cpp@{sudoku\+\_\+agent.\+cpp}!main@{main}}
+\index{main@{main}!sudoku\+\_\+agent.\+cpp@{sudoku\+\_\+agent.\+cpp}}
+\subsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}\item[{int}]{argc,  }\item[{char $\ast$}]{argv\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})}
+
+
+
+Entry point to sudoku agent. 
+
+For simplicity, I\textquotesingle{}m just assuming both arguments are passed as expected
+
+Setup Z\+MQ network
+
+Initialize knowledgebase and agent id
+
+setup private knowledge variables / calculate row, col, quadrant
+
+setup global knowledge variables
+
+until complete, keep propogating/deducing info
+
+Propogate row, col, quad, value
+
+If our value is 0, check peers and try to update value
+
+If solution is complete, set complete flag and save to file 
+
+Definition at line 135 of file sudoku\+\_\+agent.\+cpp.
+
+
+
+\subsection{Variable Documentation}
+\mbox{\Hypertarget{sudoku__agent_8cpp_a986befd442815886b539653b02cca566}\label{sudoku__agent_8cpp_a986befd442815886b539653b02cca566}} 
+\index{sudoku\+\_\+agent.\+cpp@{sudoku\+\_\+agent.\+cpp}!num\+\_\+agents@{num\+\_\+agents}}
+\index{num\+\_\+agents@{num\+\_\+agents}!sudoku\+\_\+agent.\+cpp@{sudoku\+\_\+agent.\+cpp}}
+\subsubsection{\texorpdfstring{num\+\_\+agents}{num\_agents}}
+{\footnotesize\ttfamily int num\+\_\+agents = 81}
+
+
+
+Definition at line 32 of file sudoku\+\_\+agent.\+cpp.
+
+\mbox{\Hypertarget{sudoku__agent_8cpp_a43f552b00d972f4ef1538bf089007ba9}\label{sudoku__agent_8cpp_a43f552b00d972f4ef1538bf089007ba9}} 
+\index{sudoku\+\_\+agent.\+cpp@{sudoku\+\_\+agent.\+cpp}!starting\+\_\+port@{starting\+\_\+port}}
+\index{starting\+\_\+port@{starting\+\_\+port}!sudoku\+\_\+agent.\+cpp@{sudoku\+\_\+agent.\+cpp}}
+\subsubsection{\texorpdfstring{starting\+\_\+port}{starting\_port}}
+{\footnotesize\ttfamily int starting\+\_\+port = 30000}
+
+
+
+Definition at line 31 of file sudoku\+\_\+agent.\+cpp.
+

@@ -1,0 +1,27 @@
+I\+N\+T\+RO\+:
+
+Madara Sudoku is a distributed-\/agent sudoku solver. It\textquotesingle{}s purpose is to experiment with the madara platform and it\textquotesingle{}s api. (Note\+: this is not meant to be a fast, efficient, or complete sudoku solver)
+
+It showcases the following features\+:
+\begin{DoxyItemize}
+\item 81 agents communicating over Z\+MQ T\+CP
+\item use of the madara\+::knowledge\+::containers api to read and write to the knowledgebase
+\item use of Knowledge\+Base\+::send\+\_\+modifieds to send data
+\item saving the knowledgebase to file using the karl format
+\end{DoxyItemize}
+
+H\+OW TO\+:
+
+C\+O\+M\+P\+I\+LE ON L\+I\+N\+UX\+:
+
+{\ttfamily ./action.sh compile}
+
+R\+UN T\+HE S\+O\+L\+V\+ER\+:
+
+{\ttfamily python3 launch.\+py ./in/easy.txt}
+
+{\ttfamily python3 launch.\+py ./in/medium.txt}
+
+
+
+ 
