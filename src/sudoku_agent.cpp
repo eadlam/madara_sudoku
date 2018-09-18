@@ -31,14 +31,6 @@ std::string host_prefix("tcp://127.0.0.1:");
 int starting_port = 30000;
 int num_agents = 81;
 
-/**
- *  @file sudoku_agent.cpp
- *  @author Eric Adlam <eadlam@gmail.com>
- *
- *  This is the entry point and contains all functions and definitions
- *  for Madara Sudoku
- */
-
 
 /**
  *  Construct [protocol]://[ip]:[port] and push to settings.hosts
@@ -51,6 +43,7 @@ void add_agent(int id, QoSTransportSettings& settings){
   ss << host_prefix << (starting_port + id);
   settings.hosts.push_back(ss.str());
 }
+
 
 /**
  *  Add peers to settings.hosts (skipping this agent)
